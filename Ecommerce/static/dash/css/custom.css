@@ -1,0 +1,22 @@
+.sidebar-content-display {
+    width: 100%;
+    display: flex;
+}
+
+.sidebar-dd {
+    width: 20%;
+}
+
+.main-dd {
+    width: 80%;
+}
+
+@media screen and (max-width:1280px) {
+    .sidebar-dd {
+        display: none;
+    }
+
+    .main-dd {
+        width: 100%;
+    }
+}

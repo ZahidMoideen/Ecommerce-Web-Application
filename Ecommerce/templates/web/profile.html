@@ -1,0 +1,65 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block content %}
+  <style>
+    .profile-container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .profile-details {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+
+    .profile-details p {
+      margin-bottom: 10px;
+    }
+
+    .profile-details strong {
+      font-weight: bold;
+    }
+
+    .btn-container {
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn.edit {
+      background-color: #28a745;
+    }
+
+    .btn.change-password {
+      background-color: #dc3545;
+      margin-left: 10px;
+    }
+  </style>
+
+  <div class="profile-container">
+    <h2>Customer Profile</h2>
+    <div class="profile-details">
+      <p><strong>Name:</strong> {{ customer.name }}</p>
+      <p><strong>Email:</strong> {{ customer.user.email }}</p>
+      <p><strong>Address:</strong> {{ customer.address }}</p>
+      <p><strong>Phone:</strong> {{ customer.phone }}</p>
+      <p><strong>Created At:</strong> {{ customer.created_at }}</p>
+      <p><strong>Updated At:</strong> {{ customer.updated_at }}</p>
+    </div>
+    <div class="btn-container">
+      <a href="" class="btn edit">Edit Profile</a>
+      <a href="" class="btn change-password">Change Password</a>
+    </div>
+  </div>
+{% endblock %}

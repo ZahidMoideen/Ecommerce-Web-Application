@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+        .product {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .product img {
+            width: 100%;
+            height: 300px;
+            border-radius: 5px;
+        }
+        .product-info {
+            margin-top: 10px;
+        }
+        .product-info p {
+            margin: 5px 0;
+        }
+        .actions {
+            margin-top: 10px;
+        }
+        .actions button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            margin-right: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .actions button:hover {
+            background-color: #0056b3;
+        }
+        .up-de-btn {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Products</h1>
+    <div class="product-container">
+        {% for product in products %}
+        <div class="product">
+            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+            <div class="product-info">
+                <h2>{{ product.title }}</h2>
+                <p><strong>Price:</strong> ${{ product.price }}</p>
+                {% comment %} <p><strong>Description:</strong> {{ product.description }}</p> {% endcomment %}
+              
+            </div>
+            <div class="actions">
+               <form action="{% url 'update_products' product.id %}" enctype="multipart/form-data"  class="up-de-btn">
+                {% csrf_token %}
+                    <button type="submit">Update</button>
+                </form>
+                <form action="{% url 'delete_products' product.id %}"  enctype="multipart/form-data"   class="up-de-btn">
+                {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form> 
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

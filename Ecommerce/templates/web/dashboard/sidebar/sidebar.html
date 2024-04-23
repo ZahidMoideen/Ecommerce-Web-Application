@@ -1,0 +1,40 @@
+ {% load static %}
+ 
+ <!-- sidebar -->
+ <div class="sidebar px-4 py-4 py-md-4 me-0">
+    <div class="d-flex flex-column h-100">
+        <a href="index.html" class="mb-0 brand-icon">
+            <span class="logo-icon">
+                <i class="bi bi-bag-check-fill fs-4"></i>
+            </span>
+            <span class="logo-text">eBazar</span>
+        </a>
+        <ul class="menu-list flex-grow-1 mt-3">
+            <li><a class="m-link active" href="{% url 'admin_dashboard' %}"><span>Dashboard</span></a></li>
+
+  
+            <li class="collapsed">
+                <a class="m-link" href="{% url 'add_products' %}">
+                     <span>Add Products</span></a>
+            </li>
+            <li class="collapsed">
+                <a class="m-link" href="{% url 'all_products' %}">
+                <span>Edit Products</span></a>
+            </li>
+
+            <li class="collapsed">
+                <a class="m-link"  href="#">
+                <span>Orders</span></a>
+            </li>
+            
+            <li class="collapsed">
+                <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Componentsone" href="#">
+                     <span>Accounts</span></a>
+            </li>  
+        </ul>
+
+        <button type="button" class="btn btn-link sidebar-mini-btn text-light">
+            <span class="ms-2"><i class="icofont-bubble-right"></i></span>
+        </button>
+    </div>
+</div>

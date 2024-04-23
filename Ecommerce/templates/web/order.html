@@ -1,0 +1,27 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+{% load getstatus %}
+<div class="smallcontainer cart-page">
+    {% if orders %}
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Date</th>
+        <th>Total Price</th>
+        <th>Status</th>
+    </tr>
+    {% for order in orders %}
+        <tr>
+            <td>{{order.id}}</td>
+            <td>{{order.created_at}}</td>
+            <td>{{order.total_price}}</td>
+            <td>{% getstatus order.order_status  %}</td>
+           
+        </tr>
+        {% endfor %}
+        {% else %}
+        <p>No Orders</p>
+        {% endif %}
+</table>
+{% endblock %}
